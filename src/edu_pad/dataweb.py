@@ -52,6 +52,6 @@ class DataWeb:
             df = pd.DataFrame()
 
            
-dw=DataWeb()
-dw.obtener_datos()
+# dw=DataWeb()
+# dw.obtener_datos()
 # print(dw.url)
