@@ -8,7 +8,7 @@ setup (
     author_email="jeison.parra@est.iudigital.edu.co - ",
     description="Proyecto Scraping para IU Digital",
     py_modules=["actividad1","actividad2"],
-    install_requieres=[
+    install_requires=[
         "pandas",
         "openpyxl",
         "requests",

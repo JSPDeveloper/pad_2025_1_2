@@ -4,6 +4,11 @@ Version: 0.0.1
 Summary: Proyecto Scraping para IU Digital
 Author: Jeison Stiven Parra Garcia- Jefferson SanJuan Ortiz
 Author-email: jeison.parra@est.iudigital.edu.co - 
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
 Dynamic: author
 Dynamic: author-email
+Dynamic: requires-dist
 Dynamic: summary
