@@ -32,6 +32,7 @@ jobs:
   test:
       name: Extractor de datos
       runs-on: windows-latest
+      needs: build
       permissions:
         contents: write
       steps:
@@ -41,6 +42,7 @@ jobs:
   run-script:
       name: ingesta de Datos
       runs-on: windows-latest
+      needs: test
       permissions:
         contents: write
       steps:
@@ -48,8 +50,9 @@ jobs:
           run: python src/edu_pad/main_ingesta.py
         
   auto-commit:
-        name: ingesta de Datos
+        name: Integración Cambio
         runs-on: windows-latest
+        needs: run-script
         permissions:
           contents: write
         steps:
