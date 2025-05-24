@@ -12,5 +12,6 @@ def main():
     df_db=database.guardar_df(df)
     df_db2=database.obtener_datos()
     df_db2.to_csv("src/edu_pad/static/csv/DataWebPremierLeague.csv",index=False)
+
 if __name__ == "__main__":
     main() 

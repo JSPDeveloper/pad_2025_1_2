@@ -1,7 +1,7 @@
 
 # Workflow de ETL para Datos del Dólar con GitHub Actions
 
-Este proyecto implementa un flujo completo de ETL (Extracción, Transformación y Carga) para datos de Fútbol  GitHub Actions como orquestador de CI/CD.
+Este proyecto implementa un flujo completo de ETL (Extracción, Transformación y Carga) para datos historicos de de Fútbol con GitHub Actions como orquestador de CI/CD.
 
 ## Estructura del Flujo de Trabajo
 
@@ -13,17 +13,17 @@ El proceso está dividido en cuatro workflows de GitHub Actions:
    - Se ejecuta al hacer push al branch principal o manualmente
 
 2. **Data Extraction** (`1-Data-Extraction.yml`)
-   - Extrae datos de goleadores de la Premier League de WorldFootball
+   - Extrae los datos historicos goleadores de la Premier League de WorldFootball
    - Guarda los datos en un archivo CSV
    - Si la extracción falla, detiene el pipeline
 
 3. **Data Ingestion** (`2-Data-Ingestion.yml`)
    - Carga los datos del CSV en una base de datos SQLite
    - Elimina el CSV temporal después de la ingesta
-   - Se ejecuta automáticamente después de una extracción exitosa
+   
 
 4. **Data Monitoring** (`3-Data-Monitoring.yml`)
-   - Monitorea la base de datos SQLite verificando integridad y tendencias
+   - Proximo proceso a realizar
    
 
 ## Requisitos para la Configuración
