@@ -11,4 +11,4 @@ def main():
     #df_db2.to_csv("src/edu_pad/static/csv/DataWebPremierLeague.csv",index=False)
 
 if __name__ == "__main__":
-    main() 
+    main()

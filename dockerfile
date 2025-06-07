@@ -10,7 +10,7 @@ RUN pip install --upgrade pip \
     && pip install -e . \
     && rm -rf /root/.cache/pip
 
-ENV PYTHONPATH=/PAD_2025_1_2/src
+ENV PYTHONPATH=/pad_2025_1_2/src
 
 
 ENTRYPOINT ["python", "-m"]
