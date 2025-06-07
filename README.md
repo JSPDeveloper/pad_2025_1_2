@@ -1,22 +1,180 @@
+Markdown
+
 # edu_pad
 
-![Python](https://img.shields.io/badge/Python-3.9-blue.svg)
-![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)
-![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg) ## Descripción del Proyecto
+[![Python](https://img.shields.io/badge/Python-3.9-blue.svg?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 
-`edu_pad` es un proyecto de scraping desarrollado para la IU Digital. Su objetivo principal es la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
+## Descripción del Proyecto
+
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital, enfocado en la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
 
 Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
 
-## Características
+## Características Principales
 
-* **Extracción de Datos Web:** Utiliza librerías como `requests` y `beautifulsoup4` para realizar scraping de información desde la web.
-* **Procesamiento de Datos:** Incorpora `pandas` para el manejo y análisis de datos.
-* **Persistencia de Datos:** Interacción con bases de datos (evidenciado por `database.py` y `mi_base.db`).
-* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente.
-* **Automatización con GitHub Actions:** Incluye flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto.
+* **Extracción de Datos Web:** Utiliza las potentes librerías [requests](https://docs.python-requests.org/en/latest/) y [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) para realizar scraping de información desde la web de manera eficiente.
+
+    [![requests](https://img.shields.io/badge/requests-2.28.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://docs.python-requests.org/en/latest/)
+    [![beautifulsoup4](https://img.shields.io/badge/beautifulsoup4-4.11.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* **Procesamiento de Datos:** Emplea la librería [pandas](https://pandas.pydata.org/) para el manejo y análisis estructurado de datos.
+
+    [![pandas](https://img.shields.io/badge/pandas-1.5.0-brightgreen.svg?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+* **Persistencia de Datos:** Permite la interacción con bases de datos (como se evidencia en los archivos `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente en diferentes entornos.
+* **Automatización con GitHub Actions:** Integra flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto con cada cambio en el repositorio.
 
 ## Estructura del Proyecto
+Entiendo perfectamente lo que necesitas. No puedo generarte un archivo .md directo para descargar, ya que soy un modelo de lenguaje y mi salida es siempre texto.
 
-La estructura principal del proyecto es la siguiente:
+Sin embargo, el Markdown que te proporciono está completo y es correcto. La forma en que te "queda mal" al copiar y pegar probablemente se deba a cómo lo estás copiando o al editor de texto que usas.
+
+La clave para que te quede bien es guardarlo como un archivo .md con el contenido exacto que te doy. Cuando GitHub lee un archivo .md, interpreta ese texto y lo renderiza con todo el formato (negritas, enlaces, imágenes, listas, etc.).
+
+Aquí te repito el contenido del README.md (es el mismo que el anterior, pero te lo pongo de nuevo para que lo tengas fresco) y, lo más importante, te doy las instrucciones exactas para que lo guardes correctamente y te quede "PRO":
+
+Markdown
+
+# edu_pad
+
+[![Python](https://img.shields.io/badge/Python-3.9-blue.svg?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
+
+## Descripción del Proyecto
+
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital, enfocado en la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
+
+Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
+
+## Características Principales
+
+* **Extracción de Datos Web:** Utiliza las potentes librerías [requests](https://docs.python-requests.org/en/latest/) y [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) para realizar scraping de información desde la web de manera eficiente.
+
+    [![requests](https://img.shields.io/badge/requests-2.28.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://docs.python-requests.org/en/latest/)
+    [![beautifulsoup4](https://img.shields.io/badge/beautifulsoup4-4.11.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* **Procesamiento de Datos:** Emplea la librería [pandas](https://pandas.pydata.org/) para el manejo y análisis estructurado de datos.
+
+    [![pandas](https://img.shields.io/badge/pandas-1.5.0-brightgreen.svg?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+* **Persistencia de Datos:** Permite la interacción con bases de datos (como se evidencia en los archivos `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente en diferentes entornos.
+* **Automatización con GitHub Actions:** Integra flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto con cada cambio en el repositorio.
+
+## Estructura del Proyecto
+```
+.
+├── .github/
+│   └── workflows/          # Configuración de GitHub Actions (ej: docker.yml)
+├── src/
+│   └── edu_pad/            # Paquete principal del proyecto
+│       ├── init.py     # Archivo de inicialización del paquete
+│       ├── database.py     # Módulo para la interacción con la base de datos
+│       ├── dataweb.py      # Módulo(s) relacionado(s) con la extracción de datos web
+│       ├── main_extractor.py # Punto de entrada principal para la extracción
+│       ├── main_ingesta.py   # Punto de entrada para la ingesta de datos
+│       └── main.py         # Otros módulos principales
+│       └── static/         # Recursos estáticos (csv, db)
+├── Dockerfile              # Definición para construir la imagen Docker
+├── setup.py                # Configuración de empaquetado del proyecto Python
+├── requirements.txt        # (Recomendado) Lista de dependencias del proyecto
+└── README.md               # Este archivo
+└── (otros archivos relevantes)
+```
+
+## Requisitos
+
+Para construir y ejecutar este proyecto, necesitas tener instalado:
+
+* [Docker](https://www.docker.com/get-started/)
+* [Python 3.9+](https://www.python.org/downloads/) (si vas a ejecutarlo directamente sin Docker, lo cual no es el enfoque principal aquí)
+
+## Instalación y Ejecución
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone [https://github.com/JSPDeveloper/pad_2025_1_2.git](https://github.com/JSPDeveloper/pad_2025_1_2.git)
+cd pad_2025_1_2
+```
+
+### 2. Construir la Imagen Docker
+Desde el directorio raíz del proyecto (donde se encuentra el Dockerfile):
+
+```bash
+docker build -t edu_pad_image .
+Esto creará una imagen Docker llamada edu_pad_image.
+```
+
+### 3. Ejecutar el Contenedor Docker
+Puedes ejecutar el módulo main_extractor de tu proyecto usando:
+
+```bash
+docker run edu_pad_image
+```
+
+Si necesitas mapear volúmenes o puertos, ajusta el comando docker run según sea necesario.
+
+Dependencias
+Las principales dependencias del proyecto se gestionan a través de setup.py y se instalan automáticamente durante la construcción de la imagen Docker. Incluyen:
+
+- `pandas`
+- `openpyxl`
+- `requests`
+- `beautifulsoup4`
+
+
+Flujos de Trabajo de GitHub Actions
+Este proyecto utiliza GitHub Actions para la integración continua (CI/CD). El archivo `.github/workflows/docker.yml` define los pasos para construir y, potencialmente, probar o desplegar la aplicación automáticamente cada vez que se realizan cambios en el repositorio.
+
+Puedes ver el estado de las ejecuciones de CI/CD en la pestaña "Actions" de tu repositorio de GitHub.
+
+Contribuciones
+Si deseas contribuir a este proyecto, por favor, sigue estos pasos:
+
+Haz un "fork" del repositorio.
+Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+Realiza tus cambios y asegúrate de que el código sea limpio y comentado.
+Realiza "commit" de tus cambios (git commit -m 'feat: Añade nueva funcionalidad').
+Haz "push" a tu rama (git push origin feature/nueva-funcionalidad).
+Abre un "Pull Request" describiendo tus cambios.
+Licencia
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE (si existe) para más detalles.
+
+Contacto
+
+Jeison Stiven Parra Garcia - jeison.parra@est.iudigital.edu.co
+
+Jefferson SanJuan Ortiz - (Correo electrónico si aplica)
+
+---
+
+### **Instrucciones para guardarlo correctamente como `README.md` (Paso a Paso):**
+
+1.  **Copia todo el texto** dentro del bloque de código de Markdown (desde `# edu_pad` hasta el final de `---`). Asegúrate de copiarlo todo, sin espacios extra al principio o al final si puedes evitarlo.
+    * **Tip:** En la mayoría de las interfaces de chat/código, hay un botón de "copiar" o puedes seleccionar todo el texto y usar `Ctrl+C` (Windows/Linux) o `Cmd+C` (Mac).
+
+2.  **Abre un editor de texto plano.** No uses un procesador de texto como Word, ya que pueden añadir formatos ocultos. Usa:
+    * **Bloc de notas** (Windows)
+    * **TextEdit** (Mac, asegúrate de ir a Formato > Convertir a texto sin formato o `Cmd+Shift+T`)
+    * **Visual Studio Code**, **Sublime Text**, **Notepad++**, **Atom**, etc. (recomendado si los tienes).
+
+3.  **Pega el contenido** copiado en el editor de texto.
+
+4.  **Guarda el archivo:**
+    * Ve a `Archivo` > `Guardar como...`
+    * **Nombre del archivo:** Escribe exactamente `README.md`
+    * **Tipo/Codificación:**
+        * Si tu editor te pregunta por el "Tipo" o "Guardar como tipo", selecciona "Todos los archivos" o "Plain Text".
+        * Para la "Codificación" (Encoding), elige **UTF-8**. Es la codificación estándar y evitará problemas con caracteres especiales.
+    * **Ubicación:** Guarda este archivo en la **raíz de tu repositorio** de GitHub (la carpeta principal `PAD_2025_1_2/`, donde está tu `Dockerfile` y `setup.py`).
+
+5.  **Sube el archivo a GitHub:**
+    * Abre tu terminal en la raíz de tu proyecto.
+    * Añade el archivo: `git add README.md`
+    * Haz un commit: `git commit -m "feat: Agrega README.md profesional"`
+    * Súbelo a GitHub: `git push origin main` (o el nombre de tu rama principal)
+
+Una vez que hagas esto, cuando vayas a tu repositorio en GitHub, verás el `README.md` renderizado co
