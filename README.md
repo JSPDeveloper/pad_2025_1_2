@@ -1,91 +1,146 @@
+# edu_pad
 
-# Workflow de ETL para Datos del Dólar con GitHub Actions
+![Python](https://img.shields.io/badge/Python-3.9-blue.svg)
+![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg) ## Descripción del Proyecto
 
-Este proyecto implementa un flujo completo de ETL (Extracción, Transformación y Carga) para datos historicos de de Fútbol con GitHub Actions como orquestador de CI/CD.
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital. Su objetivo principal es la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
 
-## Estructura del Flujo de Trabajo
+Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
 
-El proceso está dividido en cuatro workflows de GitHub Actions:
+## Características
 
-1. **Setup Environment** (`0-Setup-Environment.yml`)
-   - Prepara el entorno y la estructura del proyecto
-   - Instala dependencias usando `setup.py`
-   - Se ejecuta al hacer push al branch principal o manualmente
-
-2. **Data Extraction** (`1-Data-Extraction.yml`)
-   - Extrae los datos historicos goleadores de la Premier League de WorldFootball
-   - Guarda los datos en un archivo CSV
-   - Si la extracción falla, detiene el pipeline
-
-3. **Data Ingestion** (`2-Data-Ingestion.yml`)
-   - Carga los datos del CSV en una base de datos SQLite
-   - Elimina el CSV temporal después de la ingesta
-   
-
-4. **Data Monitoring** (`3-Data-Monitoring.yml`)
-   - Proximo proceso a realizar
-   
-
-## Requisitos para la Configuración
-
-Para que este workflow funcione correctamente, necesitas configurar los siguientes secretos en GitHub:
-
-1. Para el envío de alertas por correo electrónico:
-   - `EMAIL_SENDER`: Dirección de correo del remitente
-   - `EMAIL_RECEIVER`: Dirección de correo del destinatario
-   - `EMAIL_PASSWORD`: Contraseña o token de la cuenta del remitente
-   - `SMTP_SERVER`: Servidor SMTP (valor predeterminado: smtp.gmail.com)
-   - `SMTP_PORT`: Puerto SMTP (valor predeterminado: 587)
+* **Extracción de Datos Web:** Utiliza librerías como `requests` y `beautifulsoup4` para realizar scraping de información desde la web.
+* **Procesamiento de Datos:** Incorpora `pandas` para el manejo y análisis de datos.
+* **Persistencia de Datos:** Interacción con bases de datos (evidenciado por `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente.
+* **Automatización con GitHub Actions:** Incluye flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto.
 
 ## Estructura del Proyecto
 
-```
-proyecto/
+La estructura principal del proyecto es la siguiente:
+
+Aquí tienes un borrador de un archivo README para tu repositorio de GitHub, basado en la información que me has proporcionado (estructura del proyecto, Dockerfile y setup.py):
+
+Markdown
+
+# edu_pad
+
+![Python](https://img.shields.io/badge/Python-3.9-blue.svg)
+![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg) ## Descripción del Proyecto
+
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital. Su objetivo principal es la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
+
+Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
+
+## Características
+
+* **Extracción de Datos Web:** Utiliza librerías como `requests` y `beautifulsoup4` para realizar scraping de información desde la web.
+* **Procesamiento de Datos:** Incorpora `pandas` para el manejo y análisis de datos.
+* **Persistencia de Datos:** Interacción con bases de datos (evidenciado por `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente.
+* **Automatización con GitHub Actions:** Incluye flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto.
+
+## Estructura del Proyecto
+
+La estructura principal del proyecto es la siguiente:
+
+.
 ├── .github/
-│   └── workflows/
-│       ├── 0-Setup-Environment.yml
-│       ├── 1-Data-Extraction.yml
-│       ├── 2-Data-Ingestion.yml
-│       └── 3-Data-Monitoring.yml
+│   └── workflows/          # Configuración de GitHub Actions (ej: docker.yml)
 ├── src/
-│   └── edu_pad/
-│       ├── database.py
-│       ├── dataweb.py
-│       ├── main_extractor.py
-│       ├── main_ingesta.py
-│       ├── monitor.py
-│       └── static/
-│           ├── csv/
-│           ├── db/
-│           └── logs/
-├── setup.py
-└── README.md
-```
+│   └── edu_pad/            # Paquete principal del proyecto
+│       ├── init.py     # Archivo de inicialización del paquete
+│       ├── database.py     # Módulo para la interacción con la base de datos
+│       ├── dataweb.py      # Módulo(s) relacionado(s) con la extracción de datos web
+│       ├── main_extractor.py # Punto de entrada principal para la extracción
+│       ├── main_ingesta.py   # Punto de entrada para la ingesta de datos
+│       └── main.py         # Otros módulos principales
+│       └── static/         # Recursos estáticos (csv, db)
+├── Dockerfile              # Definición para construir la imagen Docker
+├── setup.py                # Configuración de empaquetado del proyecto Python
+├── requirements.txt        # (Recomendado) Lista de dependencias del proyecto
+└── README.md               # Este archivo
+└── (otros archivos relevantes)
 
-## Instalación
+## Requisitos
 
-1. Clona este repositorio
-2. Configura los secretos en GitHub
-3. Los workflows se ejecutarán automáticamente según lo programado o puedes iniciarlos manualmente
+Para construir y ejecutar este proyecto, necesitas tener instalado:
 
-## Características Principales
+* [**Docker**](https://www.docker.com/get-started/)
+* [**Python 3.9+**](https://www.python.org/downloads/) (si vas a ejecutarlo directamente sin Docker, lo cual no es el enfoque principal aquí)
 
-- **Modular**: Cada fase del ETL está en su propio archivo YAML
-- **Condicional**: Los jobs dependen del éxito de los anteriores
-- **Monitoreo automatizado**: Análisis de tendencias y detección de anomalías
-- **Alertas**: Notificaciones por correo cuando hay problemas o cambios importantes
-- **Persistencia de artefactos**: Los datos y logs se conservan entre ejecuciones
-- **Instalación simplificada**: Utiliza setup.py para gestionar dependencias
+## Instalación y Ejecución
 
-## Personalización
+### 1. Clonar el Repositorio
 
-Para adaptar este workflow a tus necesidades:
+```bash
+git clone [https://github.com/JSPDeveloper/pad_2025_1_2.git](https://github.com/JSPDeveloper/pad_2025_1_2.git)
+cd pad_2025_1_2
 
-1. Modifica `dataweb.py` para extraer datos de otras fuentes
-2. Ajusta la frecuencia de ejecución modificando las expresiones cron en los archivos YAML
-3. Añade más análisis o transformaciones en la clase `DatabaseMonitor`
-4. Actualiza `setup.py` si necesitas instalar paquetes adicionales
+Aquí tienes un borrador de un archivo README para tu repositorio de GitHub, basado en la información que me has proporcionado (estructura del proyecto, Dockerfile y setup.py):
 
----
+Markdown
 
-Creado para la formacion de analitica de datos utilizando GitHub Actions y Python
+# edu_pad
+
+![Python](https://img.shields.io/badge/Python-3.9-blue.svg)
+![Docker](https://img.shields.io/badge/Docker-ready-blue.svg)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg) ## Descripción del Proyecto
+
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital. Su objetivo principal es la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
+
+Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
+
+## Características
+
+* **Extracción de Datos Web:** Utiliza librerías como `requests` y `beautifulsoup4` para realizar scraping de información desde la web.
+* **Procesamiento de Datos:** Incorpora `pandas` para el manejo y análisis de datos.
+* **Persistencia de Datos:** Interacción con bases de datos (evidenciado por `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente.
+* **Automatización con GitHub Actions:** Incluye flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto.
+
+## Estructura del Proyecto
+
+La estructura principal del proyecto es la siguiente:
+
+.
+├── .github/
+│   └── workflows/          # Configuración de GitHub Actions (ej: docker.yml)
+├── src/
+│   └── edu_pad/            # Paquete principal del proyecto
+│       ├── init.py     # Archivo de inicialización del paquete
+│       ├── database.py     # Módulo para la interacción con la base de datos
+│       ├── dataweb.py      # Módulo(s) relacionado(s) con la extracción de datos web
+│       ├── main_extractor.py # Punto de entrada principal para la extracción
+│       ├── main_ingesta.py   # Punto de entrada para la ingesta de datos
+│       └── main.py         # Otros módulos principales
+│       └── static/         # Recursos estáticos (csv, db)
+├── Dockerfile              # Definición para construir la imagen Docker
+├── setup.py                # Configuración de empaquetado del proyecto Python
+├── requirements.txt        # (Recomendado) Lista de dependencias del proyecto
+└── README.md               # Este archivo
+└── (otros archivos relevantes)
+
+
+## Requisitos
+
+Para construir y ejecutar este proyecto, necesitas tener instalado:
+
+* [**Docker**](https://www.docker.com/get-started/)
+* [**Python 3.9+**](https://www.python.org/downloads/) (si vas a ejecutarlo directamente sin Docker, lo cual no es el enfoque principal aquí)
+
+## Instalación y Ejecución
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone [https://github.com/JSPDeveloper/pad_2025_1_2.git](https://github.com/JSPDeveloper/pad_2025_1_2.git)
+cd pad_2025_1_2
+2. Construir la Imagen Docker
+Desde el directorio raíz del proyecto (donde se encuentra Dockerfile):
+docker build -t edu_pad_image .
