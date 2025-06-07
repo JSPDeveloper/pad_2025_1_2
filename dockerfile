@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-WORKDIR /PAD_2025_1_2
+WORKDIR /pad_2025_1_2
 
 COPY . .
 
@@ -12,8 +12,6 @@ RUN pip install --upgrade pip \
 
 ENV PYTHONPATH=/pad_2025_1_2/src
 
-
 ENTRYPOINT ["python", "-m"]
-
 
 CMD ["edu_pad.main_extractor"]
