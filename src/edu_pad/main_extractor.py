@@ -1,4 +1,4 @@
-from datawebv2 import DataWeb
+from src.edu_pad.datawebv2 import DataWeb
 import pandas as pd
 
 def main():
