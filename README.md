@@ -105,8 +105,9 @@ Desde el directorio raíz del proyecto (donde se encuentra el Dockerfile):
 
 ```bash
 docker build -t edu_pad_image .
-Esto creará una imagen Docker llamada edu_pad_image.
 ```
+Esto creará una imagen Docker llamada edu_pad_image.
+
 
 ### 3. Ejecutar el Contenedor Docker
 Puedes ejecutar el módulo main_extractor de tu proyecto usando:
@@ -117,7 +118,7 @@ docker run edu_pad_image
 
 Si necesitas mapear volúmenes o puertos, ajusta el comando docker run según sea necesario.
 
-Dependencias
+# Dependencias
 Las principales dependencias del proyecto se gestionan a través de setup.py y se instalan automáticamente durante la construcción de la imagen Docker. Incluyen:
 
 - `pandas`
@@ -126,55 +127,33 @@ Las principales dependencias del proyecto se gestionan a través de setup.py y s
 - `beautifulsoup4`
 
 
-Flujos de Trabajo de GitHub Actions
+# Flujos de Trabajo de GitHub Actions
 Este proyecto utiliza GitHub Actions para la integración continua (CI/CD). El archivo `.github/workflows/docker.yml` define los pasos para construir y, potencialmente, probar o desplegar la aplicación automáticamente cada vez que se realizan cambios en el repositorio.
 
 Puedes ver el estado de las ejecuciones de CI/CD en la pestaña "Actions" de tu repositorio de GitHub.
 
-Contribuciones
+# Contribuciones
 Si deseas contribuir a este proyecto, por favor, sigue estos pasos:
 
-Haz un "fork" del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza tus cambios y asegúrate de que el código sea limpio y comentado.
-Realiza "commit" de tus cambios (git commit -m 'feat: Añade nueva funcionalidad').
-Haz "push" a tu rama (git push origin feature/nueva-funcionalidad).
-Abre un "Pull Request" describiendo tus cambios.
-Licencia
+1.Haz un "fork" del repositorio.
+
+2.Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+
+3.Realiza tus cambios y asegúrate de que el código sea limpio y comentado.
+
+4.Realiza "commit" de tus cambios (`git commit -m 'feat: Añade nueva funcionalidad'`).
+
+5.Haz "push" atu rama (`git push origin feature/nueva-funcionalidad`).
+
+6.Abre un "Pull Request" describiendo tus cambios.
+
+# Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE (si existe) para más detalles.
 
-Contacto
+# Contacto
 
 Jeison Stiven Parra Garcia - jeison.parra@est.iudigital.edu.co
 
-Jefferson SanJuan Ortiz - (Correo electrónico si aplica)
+Jefferson SanJuan Ortiz - jefferson.sanjuan@est.iudigital.edu.co
 
 ---
-
-### **Instrucciones para guardarlo correctamente como `README.md` (Paso a Paso):**
-
-1.  **Copia todo el texto** dentro del bloque de código de Markdown (desde `# edu_pad` hasta el final de `---`). Asegúrate de copiarlo todo, sin espacios extra al principio o al final si puedes evitarlo.
-    * **Tip:** En la mayoría de las interfaces de chat/código, hay un botón de "copiar" o puedes seleccionar todo el texto y usar `Ctrl+C` (Windows/Linux) o `Cmd+C` (Mac).
-
-2.  **Abre un editor de texto plano.** No uses un procesador de texto como Word, ya que pueden añadir formatos ocultos. Usa:
-    * **Bloc de notas** (Windows)
-    * **TextEdit** (Mac, asegúrate de ir a Formato > Convertir a texto sin formato o `Cmd+Shift+T`)
-    * **Visual Studio Code**, **Sublime Text**, **Notepad++**, **Atom**, etc. (recomendado si los tienes).
-
-3.  **Pega el contenido** copiado en el editor de texto.
-
-4.  **Guarda el archivo:**
-    * Ve a `Archivo` > `Guardar como...`
-    * **Nombre del archivo:** Escribe exactamente `README.md`
-    * **Tipo/Codificación:**
-        * Si tu editor te pregunta por el "Tipo" o "Guardar como tipo", selecciona "Todos los archivos" o "Plain Text".
-        * Para la "Codificación" (Encoding), elige **UTF-8**. Es la codificación estándar y evitará problemas con caracteres especiales.
-    * **Ubicación:** Guarda este archivo en la **raíz de tu repositorio** de GitHub (la carpeta principal `PAD_2025_1_2/`, donde está tu `Dockerfile` y `setup.py`).
-
-5.  **Sube el archivo a GitHub:**
-    * Abre tu terminal en la raíz de tu proyecto.
-    * Añade el archivo: `git add README.md`
-    * Haz un commit: `git commit -m "feat: Agrega README.md profesional"`
-    * Súbelo a GitHub: `git push origin main` (o el nombre de tu rama principal)
-
-Una vez que hagas esto, cuando vayas a tu repositorio en GitHub, verás el `README.md` renderizado co
