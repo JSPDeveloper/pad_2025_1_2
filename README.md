@@ -1,91 +1,120 @@
+# edu_pad
 
-# Workflow de ETL para Datos del Dólar con GitHub Actions
+[![Python](https://img.shields.io/badge/Python-3.9-blue.svg?style=for-the-badge&logo=python&logoColor=yellow)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/Docker-ready-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 
-Este proyecto implementa un flujo completo de ETL (Extracción, Transformación y Carga) para datos historicos de de Fútbol con GitHub Actions como orquestador de CI/CD.
+## Descripción del Proyecto
 
-## Estructura del Flujo de Trabajo
+`edu_pad` es un proyecto de scraping desarrollado para la IU Digital, enfocado en la extracción y procesamiento de datos web para diversos fines, incluyendo la ingesta de información y la interacción con bases de datos.
 
-El proceso está dividido en cuatro workflows de GitHub Actions:
-
-1. **Setup Environment** (`0-Setup-Environment.yml`)
-   - Prepara el entorno y la estructura del proyecto
-   - Instala dependencias usando `setup.py`
-   - Se ejecuta al hacer push al branch principal o manualmente
-
-2. **Data Extraction** (`1-Data-Extraction.yml`)
-   - Extrae los datos historicos goleadores de la Premier League de WorldFootball
-   - Guarda los datos en un archivo CSV
-   - Si la extracción falla, detiene el pipeline
-
-3. **Data Ingestion** (`2-Data-Ingestion.yml`)
-   - Carga los datos del CSV en una base de datos SQLite
-   - Elimina el CSV temporal después de la ingesta
-   
-
-4. **Data Monitoring** (`3-Data-Monitoring.yml`)
-   - Proximo proceso a realizar
-   
-
-## Requisitos para la Configuración
-
-Para que este workflow funcione correctamente, necesitas configurar los siguientes secretos en GitHub:
-
-1. Para el envío de alertas por correo electrónico:
-   - `EMAIL_SENDER`: Dirección de correo del remitente
-   - `EMAIL_RECEIVER`: Dirección de correo del destinatario
-   - `EMAIL_PASSWORD`: Contraseña o token de la cuenta del remitente
-   - `SMTP_SERVER`: Servidor SMTP (valor predeterminado: smtp.gmail.com)
-   - `SMTP_PORT`: Puerto SMTP (valor predeterminado: 587)
-
-## Estructura del Proyecto
-
-```
-proyecto/
-├── .github/
-│   └── workflows/
-│       ├── 0-Setup-Environment.yml
-│       ├── 1-Data-Extraction.yml
-│       ├── 2-Data-Ingestion.yml
-│       └── 3-Data-Monitoring.yml
-├── src/
-│   └── edu_pad/
-│       ├── database.py
-│       ├── dataweb.py
-│       ├── main_extractor.py
-│       ├── main_ingesta.py
-│       ├── monitor.py
-│       └── static/
-│           ├── csv/
-│           ├── db/
-│           └── logs/
-├── setup.py
-└── README.md
-```
-
-## Instalación
-
-1. Clona este repositorio
-2. Configura los secretos en GitHub
-3. Los workflows se ejecutarán automáticamente según lo programado o puedes iniciarlos manualmente
+Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que garantiza un despliegue consistente y reproducible.
 
 ## Características Principales
 
-- **Modular**: Cada fase del ETL está en su propio archivo YAML
-- **Condicional**: Los jobs dependen del éxito de los anteriores
-- **Monitoreo automatizado**: Análisis de tendencias y detección de anomalías
-- **Alertas**: Notificaciones por correo cuando hay problemas o cambios importantes
-- **Persistencia de artefactos**: Los datos y logs se conservan entre ejecuciones
-- **Instalación simplificada**: Utiliza setup.py para gestionar dependencias
+* **Extracción de Datos Web:** Utiliza las potentes librerías [requests](https://docs.python-requests.org/en/latest/) y [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) para realizar scraping de información desde la web de manera eficiente.
 
-## Personalización
+    [![requests](https://img.shields.io/badge/requests-2.28.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://docs.python-requests.org/en/latest/)
+    [![beautifulsoup4](https://img.shields.io/badge/beautifulsoup4-4.11.1-brightgreen.svg?style=flat-square&logo=python&logoColor=white)](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* **Procesamiento de Datos:** Emplea la librería [pandas](https://pandas.pydata.org/) para el manejo y análisis estructurado de datos.
 
-Para adaptar este workflow a tus necesidades:
+    [![pandas](https://img.shields.io/badge/pandas-1.5.0-brightgreen.svg?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+* **Persistencia de Datos:** Permite la interacción con bases de datos (como se evidencia en los archivos `database.py` y `mi_base.db`).
+* **Dockerizado:** Empaquetado en un contenedor Docker para un despliegue sencillo y consistente en diferentes entornos.
+* **Automatización con GitHub Actions:** Integra flujos de trabajo de CI/CD para la construcción y prueba automática del proyecto con cada cambio en el repositorio.
 
-1. Modifica `dataweb.py` para extraer datos de otras fuentes
-2. Ajusta la frecuencia de ejecución modificando las expresiones cron en los archivos YAML
-3. Añade más análisis o transformaciones en la clase `DatabaseMonitor`
-4. Actualiza `setup.py` si necesitas instalar paquetes adicionales
+## Estructura del Proyecto
+```
+.
+├── .github/
+│   └── workflows/          # Configuración de GitHub Actions (ej: docker.yml)
+├── src/
+│   └── edu_pad/            # Paquete principal del proyecto
+│       ├── init.py     # Archivo de inicialización del paquete
+│       ├── database.py     # Módulo para la interacción con la base de datos
+│       ├── dataweb.py      # Módulo(s) relacionado(s) con la extracción de datos web
+│       ├── main_extractor.py # Punto de entrada principal para la extracción
+│       ├── main_ingesta.py   # Punto de entrada para la ingesta de datos
+│       └── main.py         # Otros módulos principales
+│       └── static/         # Recursos estáticos (csv, db)
+├── Dockerfile              # Definición para construir la imagen Docker
+├── setup.py                # Configuración de empaquetado del proyecto Python
+├── requirements.txt        # (Recomendado) Lista de dependencias del proyecto
+└── README.md               # Este archivo
+└── (otros archivos relevantes)
+```
+
+## Requisitos
+
+Para construir y ejecutar este proyecto, necesitas tener instalado:
+
+* [Docker](https://www.docker.com/get-started/)
+* [Python 3.9+](https://www.python.org/downloads/) (si vas a ejecutarlo directamente sin Docker, lo cual no es el enfoque principal aquí)
+
+## Instalación y Ejecución
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone [https://github.com/JSPDeveloper/pad_2025_1_2.git](https://github.com/JSPDeveloper/pad_2025_1_2.git)
+cd pad_2025_1_2
+```
+
+### 2. Construir la Imagen Docker
+Desde el directorio raíz del proyecto (donde se encuentra el Dockerfile):
+
+```bash
+docker build -t edu_pad_image .
+```
+Esto creará una imagen Docker llamada edu_pad_image.
+
+
+### 3. Ejecutar el Contenedor Docker
+Puedes ejecutar el módulo main_extractor de tu proyecto usando:
+
+```bash
+docker run edu_pad_image
+```
+
+Si necesitas mapear volúmenes o puertos, ajusta el comando docker run según sea necesario.
+
+# Dependencias
+Las principales dependencias del proyecto se gestionan a través de setup.py y se instalan automáticamente durante la construcción de la imagen Docker. Incluyen:
+
+- `pandas`
+- `openpyxl`
+- `requests`
+- `beautifulsoup4`
+
+
+# Flujos de Trabajo de GitHub Actions
+Este proyecto utiliza GitHub Actions para la integración continua (CI/CD). El archivo `.github/workflows/docker.yml` define los pasos para construir y, potencialmente, probar o desplegar la aplicación automáticamente cada vez que se realizan cambios en el repositorio.
+
+Puedes ver el estado de las ejecuciones de CI/CD en la pestaña "Actions" de tu repositorio de GitHub.
+
+# Contribuciones
+Si deseas contribuir a este proyecto, por favor, sigue estos pasos:
+
+1.Haz un "fork" del repositorio.
+
+2.Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+
+3.Realiza tus cambios y asegúrate de que el código sea limpio y comentado.
+
+4.Realiza "commit" de tus cambios (`git commit -m 'feat: Añade nueva funcionalidad'`).
+
+5.Haz "push" atu rama (`git push origin feature/nueva-funcionalidad`).
+
+6.Abre un "Pull Request" describiendo tus cambios.
+
+# Licencia
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE (si existe) para más detalles.
+
+# Contacto
+
+Jeison Stiven Parra Garcia - jeison.parra@est.iudigital.edu.co
+
+Jefferson SanJuan Ortiz - jefferson.sanjuan@est.iudigital.edu.co
 
 ---
-
-Creado para la formacion de analitica de datos utilizando GitHub Actions y Python
