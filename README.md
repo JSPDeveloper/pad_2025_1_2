@@ -44,6 +44,7 @@ Este proyecto está diseñado para ejecutarse en un entorno Dockerizado, lo que 
 └── README.md               # Este archivo
 └── (otros archivos relevantes)
 ```
+<<<<<<< HEAD
 
 ## Requisitos
 
@@ -118,3 +119,79 @@ Jeison Stiven Parra Garcia - jeison.parra@est.iudigital.edu.co
 Jefferson SanJuan Ortiz - jefferson.sanjuan@est.iudigital.edu.co
 
 ---
+=======
+
+## Requisitos
+
+Para construir y ejecutar este proyecto, necesitas tener instalado:
+
+* [Docker](https://www.docker.com/get-started/)
+* [Python 3.9+](https://www.python.org/downloads/) (si vas a ejecutarlo directamente sin Docker, lo cual no es el enfoque principal aquí)
+
+## Instalación y Ejecución
+
+### 1. Clonar el Repositorio
+
+```bash
+git clone [https://github.com/JSPDeveloper/pad_2025_1_2.git](https://github.com/JSPDeveloper/pad_2025_1_2.git)
+cd pad_2025_1_2
+```
+
+### 2. Construir la Imagen Docker
+Desde el directorio raíz del proyecto (donde se encuentra el Dockerfile):
+
+```bash
+docker build -t edu_pad_image .
+```
+Esto creará una imagen Docker llamada edu_pad_image.
+
+
+### 3. Ejecutar el Contenedor Docker
+Puedes ejecutar el módulo main_extractor de tu proyecto usando:
+
+```bash
+docker run edu_pad_image
+```
+
+Si necesitas mapear volúmenes o puertos, ajusta el comando docker run según sea necesario.
+
+# Dependencias
+Las principales dependencias del proyecto se gestionan a través de setup.py y se instalan automáticamente durante la construcción de la imagen Docker. Incluyen:
+
+- `pandas`
+- `openpyxl`
+- `requests`
+- `beautifulsoup4`
+
+
+# Flujos de Trabajo de GitHub Actions
+Este proyecto utiliza GitHub Actions para la integración continua (CI/CD). El archivo `.github/workflows/docker.yml` define los pasos para construir y, potencialmente, probar o desplegar la aplicación automáticamente cada vez que se realizan cambios en el repositorio.
+
+Puedes ver el estado de las ejecuciones de CI/CD en la pestaña "Actions" de tu repositorio de GitHub.
+
+# Contribuciones
+Si deseas contribuir a este proyecto, por favor, sigue estos pasos:
+
+1.Haz un "fork" del repositorio.
+
+2.Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+
+3.Realiza tus cambios y asegúrate de que el código sea limpio y comentado.
+
+4.Realiza "commit" de tus cambios (`git commit -m 'feat: Añade nueva funcionalidad'`).
+
+5.Haz "push" atu rama (`git push origin feature/nueva-funcionalidad`).
+
+6.Abre un "Pull Request" describiendo tus cambios.
+
+# Licencia
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE (si existe) para más detalles.
+
+# Contacto
+
+Jeison Stiven Parra Garcia - jeison.parra@est.iudigital.edu.co
+
+Jefferson SanJuan Ortiz - jefferson.sanjuan@est.iudigital.edu.co
+
+---
+>>>>>>> 9f57292a4248aeb673089f6f53ad9f8c3bb09905
